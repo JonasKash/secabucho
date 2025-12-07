@@ -23,9 +23,10 @@
     <link rel="stylesheet" href="css/style-v6.css">
     <link rel="stylesheet" href="css/responsive-v5.css">
 
-  <link rel="preload" href="https://scripts.converteai.net/6b8f6bad-d24d-460e-ae57-3f5970b1ab6b/players/685ca4684c226e789e79bab0/v4/player.js" as="script">
+  <script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
+  <link rel="preload" href="https://scripts.converteai.net/37eff1c3-752d-46b5-9416-d023ec8c715d/players/6934f596e212f51b19a20916/v4/player.js" as="script">
   <link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
-  <link rel="preload" href="https://cdn.converteai.net/6b8f6bad-d24d-460e-ae57-3f5970b1ab6b/685ca294daec92763244bb70/main.m3u8" as="fetch">
+  <link rel="preload" href="https://cdn.converteai.net/37eff1c3-752d-46b5-9416-d023ec8c715d/6934f4d3e212f51b19a2087a/main.m3u8" as="fetch">
   <link rel="dns-prefetch" href="https://cdn.converteai.net">
   <link rel="dns-prefetch" href="https://scripts.converteai.net">
   <link rel="dns-prefetch" href="https://images.converteai.net">
@@ -140,7 +141,7 @@
                     🛒 Comprar Agora
                   </button>
                 </div>
-                <vturb-smartplayer id="vid-688a6784aaaa44c1ed2daf32" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"></vturb-smartplayer> <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/6b8f6bad-d24d-460e-ae57-3f5970b1ab6b/players/688a6784aaaa44c1ed2daf32/v4/player.js", s.async=!0,document.head.appendChild(s); </script>
+                <vturb-smartplayer id="vid-6934f596e212f51b19a20916" style="display: block; margin: 0 auto; width: 100%;"></vturb-smartplayer> <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/37eff1c3-752d-46b5-9416-d023ec8c715d/players/6934f596e212f51b19a20916/v4/player.js", s.async=!0,document.head.appendChild(s); </script>
 
                 <p class="bolog_img_tittle_no_line d-flex justify-content-center">
                   <i class="fa fa-heart me-2 mt-1"></i> <span id="user_online" class="me-1 fw-bold">537</span> mulheres ouvindo.
@@ -378,32 +379,6 @@
     const client_ip_address = await getClientIP();
     const event_id_lead = generateEventId();
     
-    console.log("🚀 Evento de Lead disparado após 180 segundos! _fbc:", _fbc, " _fbp:", _fbp, " ip:", client_ip_address, " event_id:", event_id_lead);
-
-    fetch("https://atalhosmetabolicos.com.br/vturb-webhooks", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        _fbc,
-        _fbp,
-        client_ip_address,
-        user_agent,
-        event_source_url,
-        event_id_lead,
-        vTurbEvent: "vTurbLead",
-      })
-    })
-    .then(response => response.json())
-    .then(data => {
-      if (data?.status) {
-        console.log("✅ Evento de Lead gravado:", data);
-      } else {
-        console.log("⚠️ Evento não gravado:", data);
-      }
-    })
-    .catch(error => {
-      console.log("❌ Erro ao salvar evento", error);
-    });
   }
 
   function updateCountdown() {
@@ -461,7 +436,7 @@
 
   // Função para redirecionar ao checkout
   function redirectToCheckout() {
-    window.location.href = 'https://pay.kiwify.com.br/UKaKfDe';
+    window.location.href = 'https://www.ggcheckout.com/checkout/v2/ptcppja3uwR7IkIZYKYn';
   }
 
   // Adiciona event listeners aos botões quando estiverem prontos
@@ -501,37 +476,8 @@
         const client_ip_address = await getClientIP();
 
 
-        if (!tPlay && currentTime >= 2) {
-          tPlay = true;
-
-          const event_id_play = generateEventId();
-          console.log("Video played _fbc:", _fbc, " _fbp:", _fbp, " ip:", client_ip_address, " event_id:", event_id_play);
-
-          fetch("https://atalhosmetabolicos.com.br/vturb-webhooks", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              _fbc,
-              _fbp,
-              client_ip_address,
-              user_agent,
-              event_source_url,
-              event_id_play,
-              vTurbEvent: "vTurbPlay",
-            })
-          })
-          .then(response => response.json())
-          .then(data => {
-            if (data?.status) {
-              console.log("Evento gravado:", data);
-            } else {
-              console.log("Evento nao gravado:", data);
-            }
-          })
-          .catch(error => {
-            console.log("Erro ao salvar evento", error);
-          });
-        }
+        // Evento de Play removido
+        // if (!tPlay && currentTime >= 2) { ... }
 
 
         // Evento de Lead agora é disparado imediatamente ao carregar a página (removido delay de 265 segundos)
